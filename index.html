@@ -1,63 +1,131 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Earlyn Green | Fullstack Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <title>Earlyn Green | Portfolio Coming Soon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #1e1e2f, #2c3e50);
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Montserrat', sans-serif;
-      color: #ffffff;
+      background-color: #ffffff;
+      color: #1e1e1e;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
+      justify-content: flex-start;
+      min-height: 100vh;
       text-align: center;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+    .banner {
+      width: 100%;
+      max-width: 1200px;
     }
 
-    h2 {
+    .banner img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .title {
+      margin-top: 20px;
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
+
+    .subtitle {
       font-size: 1.2rem;
-      margin-bottom: 2rem;
-      font-weight: normal;
+      color: #666;
+      margin: 10px 0 30px;
+    }
+
+    .skills {
+      max-width: 800px;
+      margin: 0 auto 20px;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    .buttons {
+      margin: 20px 0;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .buttons a {
+      background: #f04e23;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .buttons a:hover {
+      background: #c73d1c;
     }
 
     .countdown {
       display: flex;
       gap: 20px;
-      font-size: 2rem;
+      margin: 40px 0;
+      font-size: 1.8rem;
       font-weight: bold;
+      justify-content: center;
     }
 
     .countdown div {
-      background: #333;
+      background: #f04e23;
+      color: #fff;
       padding: 20px;
-      border-radius: 10px;
+      border-radius: 12px;
       min-width: 80px;
     }
 
     .label {
-      font-size: 0.75rem;
-      color: #bbb;
+      font-size: 0.8rem;
       margin-top: 5px;
       font-weight: normal;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 20px;
+      font-size: 0.8rem;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
 
-  <h1>Earlyn Green</h1>
-  <h2>Fullstack Developer • Portfolio Website Coming Soon</h2>
+  <div class="banner">
+    <img src="profile-banner.jpg" alt="Earlyn Green - Fullstack Developer" />
+  </div>
+
+  <h1 class="title">Portfolio Website Coming Soon</h1>
+  <p class="subtitle">Fullstack Software Developer</p>
+
+  <div class="skills">
+    Javascript | HTML | CSS | React | Bootstrap | Python | C++ | Flutter | MongoDB | MySQL | Vue.js | TailwindCSS | Angular | Figma | Git
+  </div>
+
+  <div class="buttons">
+    <a href="mailto:info@earlyngreen.tech">info@earlyngreen.tech</a>
+    <a href="tel:+27762482996">+27 76 248 2996</a>
+  </div>
 
   <div class="countdown" id="countdown">
     <div><span id="days">00</span><div class="label">Days</div></div>
@@ -66,15 +134,17 @@
     <div><span id="seconds">00</span><div class="label">Seconds</div></div>
   </div>
 
+  <footer>&copy; 2025 Earlyn Green. All rights reserved.</footer>
+
   <script>
-    const launchDate = new Date("2025-07-27T14:00:00Z").getTime();
+    const launchDate = new Date("2025-07-27T14:00:00+02:00").getTime(); // South Africa Time
 
     const countdown = () => {
       const now = new Date().getTime();
       const distance = launchDate - now;
 
       if (distance < 0) {
-        document.getElementById("countdown").innerHTML = "Launched!";
+        document.getElementById("countdown").innerHTML = "🚀 Site Launched!";
         return;
       }
 
