@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,10 +57,41 @@
 <body>
 
   <h1>Earlyn Green</h1>
-  <h2>Fullstack Developer • Portfolio Website under construction</h2>
+  <h2>Fullstack Developer • Portfolio Website Coming Soon</h2>
 
   <div class="countdown" id="countdown">
     <div><span id="days">00</span><div class="label">Days</div></div>
     <div><span id="hours">00</span><div class="label">Hours</div></div>
     <div><span id="minutes">00</span><div class="label">Minutes</div></div>
-    <div><span id="seconds">00</span><div class="label
+    <div><span id="seconds">00</span><div class="label">Seconds</div></div>
+  </div>
+
+  <script>
+    const launchDate = new Date("2025-07-27T14:00:00Z").getTime();
+
+    const countdown = () => {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+
+      if (distance < 0) {
+        document.getElementById("countdown").innerHTML = "Launched!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = String(days).padStart(2, '0');
+      document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+      document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+      document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+    };
+
+    setInterval(countdown, 1000);
+    countdown();
+  </script>
+
+</body>
+</html>
